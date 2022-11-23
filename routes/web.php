@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Http;
-use App\Http\Controllers\ConsumoApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +15,7 @@ use App\Http\Controllers\ConsumoApiController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/votantes', function () {
     // $pai = Http::get('https://assembleia.api.pandora.com.br');
     $response = Http::withToken('9dc19260-ff58-4cf2-a5f4-e2f297595fab')->get('https://assembleia.api.pandora.com.br/eventos/7747/votante');
     $request_API = $response->json();

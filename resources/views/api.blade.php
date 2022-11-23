@@ -12,12 +12,16 @@
     
     <div>
         @php
-            $votantes = '';
+            $votantes_id = '';
+            $votantes_nome = '';
             foreach ($request_API as $key => $votante) {
-                $votantes .= $votante['id'].',';
+                $votantes_id .= $votante['id'].','.$votante['nome'].',';
             }
-            $list_votantes = explode(",", rtrim($votantes, ','));
-            dd($list_votantes);
+            $list_votantes_id = explode(",", rtrim($votantes_id, ','));
+            $list_votantes_id = array_chunk($list_votantes_id, 2);
+
+            dd($request_API);
+            dd($list_votantes_id);
         @endphp
     </div>
 </body>
